@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+     <!-- animation library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+    <style>
+
+        img.logo {
+            max-width: 250px;
+            margin-top:5%;
+        }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+            
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+        
+        hgroup, footer {
+            margin: 5% 0;
+        }
+
+        hgroup  {
+
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            font-size: 1.4em;
+            line-height: 1.5em;
+        }
+        p, a, p a {
+            font-family: 'Open Sans', sans-serif;
+            font-size:16px;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+
+        .image-grid a{
+            display:inline-block; 
+            margin-right:5px;
+        }
+
+        .image-grid a img{
+            width: 200px;
+            height:200px;
+        }
+
+
+        .image-grid a:hover img{
+            transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Hi I'm Richard O'Reilly aka ROR</title>
+</head>
+<body>
+    <div id="wrapper">
+    <header>
+        <center>
+            <a href="#"><img src="images/logo.jpg" class="logo animate__animated animate__shakeX" /> </a>
+        </center>
+       
+    </header>
+        <section>
+            <article>
+                <hgroup>
+                    <h1 class="centered-text">I'm a <span id="app"></span></h1>
+                </hgroup>
+            </article>
+        </section>
+
+        <section class="image-grid">
+            <p class="centered-text">Some of my work...</p>
+            <a href="#" target="_blank">
+                <img src="https://picsum.photos/200" />
+                <p>Personal Trainer AI</p>
+            </a>
+            <a href="stacker/" target="_blank">
+                <img src="images/stacker.jpg" />
+                <p>JS Stacker Arcade Game</p>
+            </a>
+            <a href="nycknitro/" target="_blank">
+                <img src="images/nycknitro.jpg" alt="Nyck Nitro Hot Sauce" title="Nyck Nitro Hot Sauce"/>
+                <p>Nyck Nitro Hot Sauce</p>
+            </a>
+
+   <!--         <a href="#">
+                <img src="https://picsum.photos/200" />
+                <p>title goes here</p>
+            </a>
+ -->
+        </section>
+    <!--     <section>
+            <article>
+                <hgroup>
+                <h1>This is actually legal</h1>
+                <h2>Just wrap everything in a div, just like before</h2>
+                </hgroup>
+                <p>But it's probably better to simply use the body tag.</p>
+            </article>
+        </section> -->
+        <footer><p class="centered-text">Love from Richard O'Reilly (ROR)</p></footer>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.20.1/core.min.js" integrity="sha512-VhCNuqzYKIhOU4i+EWPomIQu3AJ8Q2HmuemubIOUHd6m6ohnHynRxBp8Jl/f8xmVEPiKtpKWuacuBeh49SBfCA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+    
+var app = document.getElementById('app');
+
+var typewriter = new Typewriter(app, {
+    loop: false
+});
+
+typewriter.typeString('Fullstack developer')
+    .pauseFor(1000)
+    .typeString('.<br /> Dev OP')
+    .pauseFor(500)
+    .typeString('.<br /> Team Lead')
+    .pauseFor(500)
+    .typeString('.<br /> Product Designer')
+    .typeString('. <br /> <img src="images/unicorn.png" width="32px" height="32px"/>')
+    .start();
+</script>
+</body>
+</html>

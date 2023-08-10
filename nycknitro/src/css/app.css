@@ -1,0 +1,202 @@
+body {
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  animation: fadeIn 1s;  
+  opacity: 0;
+}
+
+h1,h2,h3, h4, h5, b, bold, strong {
+  font-family: 'Poppins', sans-serif;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+/*    position: absolute;*/
+    top: 0;
+    left: 0;
+    object-fit: fill;
+}
+
+.logo-center {
+  padding: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12% 0 ;
+  font-size:7vw;
+  z-index: 15;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo-center img {
+  width: 100%;
+  max-width:100%;
+  height: auto;
+}
+
+.center-align {text-align: center}
+.font-white {color: white}
+.background-orange {background: #F25200}
+.background-purple {background: #8D70B0;}
+.background-green {background: #4E876B;    animation: bgColor 5s infinite linear;}
+
+.huge-bottle {
+  max-height: 500px;
+  position: fixed;
+  bottom:5%;
+  left:0%;
+  animation: fadeIn 1s;
+  height: 40vw;
+  min-height: 290px;
+}
+
+.huge-bottle.on-top {
+  z-index: 10;  
+}
+
+img.huge-bottle.bottle-one.on-bottom {
+  display: none;
+}
+
+.bottle-one {
+  z-index: 9;
+}
+
+.bottle-two {
+  display: none;
+}
+
+.ingredients {
+  text-align:right; 
+  padding-top: 15%; margin-right:10%;
+}
+
+.ingredients b {
+  font-size: 6.5vw;
+  font-weight: bold;
+}
+
+.ingredients p, .ingredients li  {
+  line-height: 33px;
+  font-size: 23px;
+  color: white;
+}
+
+.ingredients ul {
+  list-style: square;
+}
+ 
+ul.pagination {
+  position: fixed;
+  right: 10px;
+  top:100px;
+}
+
+
+a.buy-btn.btn {
+  padding: 15px 55px;
+  background: white;
+  margin-top: 10px;
+  display: block;
+  float: right;
+  border-radius: 50px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  border:3px #9889C1 solid;
+}
+
+a.buy-btn.btn.inverted {
+    border:3px #000 solid;
+}
+
+
+a.buy-btn.btn:hover {
+    background: #9889C1;
+}
+
+a.buy-btn.btn.inverted:hover {
+    background: black;
+    color: white;
+}
+
+.tiny-font {
+  font-size: 16px;
+}
+
+.home-screen {
+  z-index:10;
+  position: relative;
+} 
+
+.fixed-flavor-name-label {
+  position: absolute;
+  left: 0;
+  white-space: nowrap; 
+  color: black;
+  font-size: 2em;
+  padding:2px;
+  background: white;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.hundo-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .gif-wrapper {
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+    padding-top: 15%;
+  }
+
+  .huge-bottle {
+    left: -15%; 
+  }
+
+
+  .ingredients {
+    padding-top: 30%;
+  }
+
+  .logo-center {
+    padding-top: 35%;
+  }
+
+}
+
+
+@keyframes bgColor {
+  12.5% {
+    background-color: #;
+  }
+  25% {
+    background-color: #FAE80B;
+  }
+  37.5% {
+    background-color: #372E39;
+  }
+
+  50% {
+    background-color: #8764AC;
+  }
+  62.5% {
+    background-color: #56BB52;
+  }
+  75% {
+    background-color: #EE1583;
+  }
+  87.5% {
+    background-color: #EF4C24;
+  }
+  100% {
+    background-color: #372E39;
+  }
+}
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacker Game</title>
+    <style>
+        #game {
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .block {
+            width: 75px;
+            height: 50px;
+            background-color: #007c89;
+            position: absolute;
+            bottom: 0;
+        }
+
+
+        .block:nth-child(2) {
+            background-color: #009bab;
+         
+        }
+
+        .block:nth-child(3) {
+            background-color: #00aabc;
+         
+        }
+
+
+        .block:nth-child(4) {
+            background-color: #00b9cd;
+         
+        }
+
+
+        .block:nth-child(5) {
+            background-color: #00c9de;
+         
+        }
+
+        
+        .block:nth-child(6) {
+            background-color: #00d8ef;
+         
+        }
+
+        .block:nth-child(7) {
+            background-color: #01e7ff;
+         
+        }
+
+
+        .block:nth-child(8) {
+            background-color: #12e9ff;
+         
+        }
+
+        .block:nth-child(9) {
+            background-color: #23eaff;
+        }
+
+        .block:nth-child(10) {
+            background-color: #34ecff;
+        }
+
+
+        .block:nth-child(11) {
+            background-color: #45edff;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+<h3>Press spacebar to freeze block</h3>
+<button id="startGame">Start Game</button>
+
+<div id="game">
+    <div class="block" id="movingBlock" style="left: 0;"></div>
+</div>
+
+<script>
+
+    document.getElementById('startGame').addEventListener('click', function() {
+        this.style.display = 'none'; // hides the start button
+        initializeGame();
+    });
+
+
+    let game = document.getElementById('game');
+    let movingBlock = document.getElementById('movingBlock');
+    let direction = 1;
+    let speed = 2;  
+    let speedIncrement = 1;  // 10x faster increment
+    let stackedBlocks = [];
+    let currentPosition = 0;
+    let interval;
+
+    function moveBlock() {
+        if ((currentPosition + movingBlock.offsetWidth > game.offsetWidth && direction === 1) || (currentPosition <= 0 && direction === -1)) {
+            direction *= -1;
+        }
+
+        currentPosition += direction * speed;
+        movingBlock.style.left = currentPosition + "px";
+    }
+
+    function initializeGame() {
+        currentPosition = 0;  
+        movingBlock.style.left = currentPosition + 'px';
+        interval = setInterval(moveBlock, 50);
+
+    }
+
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 32) {  // 32 is the keycode for spacebar
+        if (!interval) {  // If the game hasn't started
+            document.getElementById('startGame').style.display = 'none';
+            initializeGame();
+            return;
+        }
+        
+        clearInterval(interval);
+
+        let leftPosition = movingBlock.offsetLeft;
+
+        if (stackedBlocks.length > 0) {
+            let lastBlock = stackedBlocks[stackedBlocks.length - 1];
+            let lastBlockLeft = lastBlock.offsetLeft;
+            let overlap;
+
+            // Calculate overlap between the blocks
+            if (leftPosition < lastBlockLeft) {
+                overlap = leftPosition + movingBlock.offsetWidth - lastBlockLeft;
+            } else {
+                overlap = lastBlockLeft + lastBlock.offsetWidth - leftPosition;
+            }
+
+            if (overlap <= 0) {
+                alert('Game Over! Try Again.');
+                document.getElementById('startGame').style.display = 'inline-block';
+                clearInterval(interval);
+                interval = null;
+                location.reload()
+                return;
+            }
+
+            // Adjust the width and left position of the new moving block
+            movingBlock.style.width = overlap + 'px';
+            movingBlock.style.left = leftPosition + ((movingBlock.offsetWidth - overlap) / 2) + 'px';
+        }
+
+        let newBlock = movingBlock.cloneNode(true);
+        game.appendChild(newBlock);
+        stackedBlocks.push(newBlock);
+        movingBlock.style.bottom = (stackedBlocks.length * movingBlock.offsetHeight) + 'px';
+
+        speed += speedIncrement;
+        interval = setInterval(moveBlock, 10);
+    }
+});
+
+
+
+</script>
+</body>
+
+</html>
