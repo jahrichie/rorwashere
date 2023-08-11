@@ -1,6 +1,21 @@
+.my-work-section {
+  display: none;
+  animation: fadeIn 1s;
+}
+
+::selection {
+  background: #ff025c; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: #ff025c; /* Gecko Browsers */
+  color: white;
+}
+
+
 img.logo {
     max-width: 250px;
-    margin-top:5%;
+    margin-top:1%;
 }
 
 html {

@@ -1,16 +1,17 @@
 var app = document.getElementById('app');
 var typewriter = new Typewriter(app, {
-    loop: false
+    loop: false,
 });
 
 typewriter.typeString("Hi, I'm ROR.")
-    .pauseFor(1000)
+    .pauseFor(500)
     .typeString("<br /> I'm a Fullstack developer")
-    .pauseFor(500)
-    .typeString('.<br /> Dev OP')
-    .pauseFor(500)
-    .typeString('.<br /> Team Lead')
-    .pauseFor(500)
+    .pauseFor(100)
+    .typeString('.<br /> Dev OP. Team Lead')
+    .pauseFor(100)
     .typeString('.<br /> Product Designer')
-    .typeString('. <br /> and  <br /> <img src="images/unicorn.png" width="32px" height="32px"/>.')
+    .typeString('. <br /> &   <img src="images/unicorn.png" width="32px" height="32px"/>.')
+    .callFunction(() => {
+      document.getElementsByClassName("my-work-section")[0].style.display = "block";
+    })
     .start();
