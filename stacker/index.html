@@ -98,7 +98,8 @@
 
 <body>
 
-<button id="startGame">Start Game</button>
+<!-- <button id="startGame">Start Game</button> -->
+<p>Press Spacebar to Freeze Block</p>
 
 <div id="game">
     <div class="block" id="movingBlock" style="left: 0;"></div>
@@ -115,6 +116,7 @@
     let currentPosition = 0;
     let interval;
     let score = 0;  // Initialize score
+    let interval_speed = 50;
 
     function moveBlock() {
         if ((currentPosition + movingBlock.offsetWidth > game.offsetWidth && direction === 1) || (currentPosition <= 0 && direction === -1)) {
@@ -133,13 +135,13 @@
     function initializeGame() {
         currentPosition = 0;
         movingBlock.style.left = currentPosition + 'px';
-        interval = setInterval(moveBlock, 50);
+        interval = setInterval(moveBlock, interval_speed);
     }
 
     document.addEventListener('keydown', function (event) {
         if (event.keyCode === 32) {
             if (!interval) {
-                document.getElementById('startGame').style.display = 'none';
+                // document.getElementById('startGame').style.display = 'none';
                 initializeGame();
                 return;
             }
@@ -161,7 +163,7 @@
 
                 if (overlap <= 0) {
                     alert('Game Over! Score: ' + score);
-                    document.getElementById('startGame').style.display = 'inline-block';
+                    // document.getElementById('startGame').style.display = 'inline-block';
                     clearInterval(interval);
                     interval = null;
                     return location.reload()
@@ -179,7 +181,7 @@
             movingBlock.style.bottom = (stackedBlocks.length * movingBlock.offsetHeight) + 'px';
 
             speed += speedIncrement;
-            interval = setInterval(moveBlock, 10);
+            interval = setInterval(moveBlock, interval_speed);
         }
     });
 
