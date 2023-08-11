@@ -23,14 +23,18 @@ hgroup, footer {
 }
 
 hgroup  {
-
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 h1 {
     font-size: 1.4em;
     line-height: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+
 }
+
 p, a, p a {
     font-family: 'Open Sans', sans-serif;
     font-size:16px;
@@ -40,30 +44,24 @@ p {
     margin: 10px 0;
 }
 
-.image-grid a{
-    display:inline-block; 
-    margin-right:5px;
+a:hover img{
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+} 
+
+a:hover p{
+    transform: scale(1.2);
+    font-size:2em;
+    background: #ff025c;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin:5px;
+} 
+
+a p {
     text-align: center;
 }
 
-.image-grid a p{
-    display: block;
-    margin-top: 25px;
-    font-weight: bold;
-}
-
-
-.image-grid a img{
-    width: 200px;
-    height:200px;
-}
-
-
-.image-grid a:hover img{
-    transform: scale(1.25); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-
- 
 
 /* unvisited link */
 a:link {
@@ -85,3 +83,69 @@ a:hover {
 a:active {
   color: #8a0031;
 }
+
+
+
+
+
+
+
+
+/* 
+  image grid
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 33.333333333333333%; /* IE10 */
+  flex: 33.333333333333333%;
+  max-width: 33.333333333333333%;
+  padding: 0 4px;
+}
+
+.column img {
+  padding:5px;
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
