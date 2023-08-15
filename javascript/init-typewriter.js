@@ -4,7 +4,7 @@ var typewriter = new Typewriter(app, {
 });
 
 typewriter.typeString("Hi, I'm ROR.")
-    .pauseFor(500)
+    .pauseFor(100)
     .typeString("<br /> I'm a Fullstack developer")
     .pauseFor(100)
     .typeString('.<br /> Dev OP. Team Lead')

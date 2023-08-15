@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacker Game</title>
     <style>
-   <style>
-        #score {
+        #score, #highScore {
             position: absolute;
             top: 10px;
             right: 10px;
             font-size: 18px;
         }
 
+        #highScore {
+            top: 30px;
+        }
 
         #game {
             width: 300px;
@@ -27,56 +29,36 @@
             width: 75px;
             height: 50px;
             background-color: #007c89;
-
             position: absolute;
             bottom: 0;
         }
 
-        #score {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 18px;
-        }
-
-
         .block:nth-child(2) {
             background-color: #009bab;
-         
         }
 
         .block:nth-child(3) {
             background-color: #00aabc;
-         
         }
-
 
         .block:nth-child(4) {
             background-color: #00b9cd;
-         
         }
-
 
         .block:nth-child(5) {
             background-color: #00c9de;
-         
         }
 
-        
         .block:nth-child(6) {
             background-color: #00d8ef;
-         
         }
 
         .block:nth-child(7) {
             background-color: #01e7ff;
-         
         }
-
 
         .block:nth-child(8) {
             background-color: #12e9ff;
-         
         }
 
         .block:nth-child(9) {
@@ -87,13 +69,9 @@
             background-color: #34ecff;
         }
 
-
         .block:nth-child(11) {
             background-color: #45edff;
         }
-
-
-    </style>
     </style>
 </head>
 
@@ -104,12 +82,13 @@
 
 <div id="game">
     <div class="block" id="movingBlock" style="left: 0;"></div>
-    <div id="score">Score: 0</div>
+    <div id="score">Current Score: 0</div>
+    <div id="highScore">High Score: 0</div>
 </div>
 
 <script>
     document.getElementById('startGame').addEventListener('click', function() {
-        this.style.display = 'none';  // Hide the button once the game starts
+        this.style.display = 'none';  
         handleGameAction();
     });
     
@@ -123,19 +102,21 @@
     let interval;
     let score = 0;
     let interval_speed = 50;
+    let highScore = localStorage.getItem('highScore') || 0;
+
+    document.getElementById('highScore').innerText = 'High Score: ' + highScore;
 
     function moveBlock() {
         if ((currentPosition + movingBlock.offsetWidth > game.offsetWidth && direction === 1) || (currentPosition <= 0 && direction === -1)) {
             direction *= -1;
         }
-
         currentPosition += direction * speed;
         movingBlock.style.left = currentPosition + "px";
     }
 
     function updateScore(value) {
         score += value;
-        document.getElementById('score').innerText = 'Score: ' + score;
+        document.getElementById('score').innerText = 'Current Score: ' + score;
     }
 
     function initializeGame() {
@@ -146,45 +127,40 @@
 
     function handleGameAction() {
         if (!interval) {
-            // document.getElementById('startGame').style.display = 'none';
             initializeGame();
             return;
         }
-
         clearInterval(interval);
-
         let leftPosition = movingBlock.offsetLeft;
-
         if (stackedBlocks.length > 0) {
             let lastBlock = stackedBlocks[stackedBlocks.length - 1];
             let lastBlockLeft = lastBlock.offsetLeft;
             let overlap;
-
             if (leftPosition < lastBlockLeft) {
                 overlap = leftPosition + movingBlock.offsetWidth - lastBlockLeft;
             } else {
                 overlap = lastBlockLeft + lastBlock.offsetWidth - leftPosition;
             }
-
             if (overlap <= 0) {
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem('highScore', highScore); 
+                    document.getElementById('highScore').innerText = 'High Score: ' + highScore;
+                }
                 alert('Game Over! Score: ' + score);
                 document.getElementById('startGame').style.display = 'inline-block';
                 clearInterval(interval);
                 interval = null;
-                return location.reload()
+                return location.reload();
             }
-
             movingBlock.style.width = overlap + 'px';
             movingBlock.style.left = leftPosition + ((movingBlock.offsetWidth - overlap) / 2) + 'px';
-
             updateScore(overlap);
         }
-
         let newBlock = movingBlock.cloneNode(true);
         game.appendChild(newBlock);
         stackedBlocks.push(newBlock);
         movingBlock.style.bottom = (stackedBlocks.length * movingBlock.offsetHeight) + 'px';
-
         speed += speedIncrement;
         interval = setInterval(moveBlock, interval_speed);
     }
@@ -194,7 +170,6 @@
             handleGameAction();
         }
     });
-
     game.addEventListener('touchstart', function(event) {
         event.preventDefault();
         handleGameAction();
