@@ -2,19 +2,45 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacker Game</title>
     <style>
-        #score, #highScore {
+      #instructions {
+        list-style: none;
+        padding:0;
+        margin:0;
+        margin-bottom: 75px;
+      }
+
+      #instructions li {
+        display: inline-block;
+        margin-right: 5%;
+        color: #888;
+      }
+
+      #score, #highScore {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            font-size: 18px;
+            top:-35px;
+            border: 1px solid #000;
+            background-color: black;
+            color: white;
+            padding:5px;
+            width: 50%;
+      }
+
+        #score {
+            text-align: right;
+            position: absolute;
+            right: 0px;
             font-size: 18px;
         }
 
         #highScore {
-            top: 30px;
+            text-align: left;
+            left: 0px;
         }
 
         #game {
@@ -77,9 +103,12 @@
 
 <body>
 
-<button id="startGame">Start Game</button>
-<p>Click spacebar to start or screen on mobile</p>
+<ul id="instructions">
+    <li><button id="startGame">Start Game</button></li>
+    <li>Click spacebar to start or screen on mobile</li>
+</ul>
 
+ 
 <div id="game">
     <div class="block" id="movingBlock" style="left: 0;"></div>
     <div id="score">Current Score: 0</div>
@@ -88,7 +117,7 @@
 
 <script>
     document.getElementById('startGame').addEventListener('click', function() {
-        this.style.display = 'none';  
+        // this.style.display = 'none';  
         handleGameAction();
     });
     
@@ -120,6 +149,7 @@
     }
 
     function initializeGame() {
+        document.getElementById('startGame').style.display = 'none';;  
         currentPosition = 0;
         movingBlock.style.left = currentPosition + 'px';
         interval = setInterval(moveBlock, interval_speed);
