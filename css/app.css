@@ -1,5 +1,9 @@
+#video {
+  background: #000000;
+}
+
 .my-work-section {
-  display: none;
+/*  display: none;*/
   animation: fadeIn 1s;
 }
 

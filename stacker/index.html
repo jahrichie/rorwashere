@@ -168,9 +168,12 @@
             let overlap;
             if (leftPosition < lastBlockLeft) {
                 overlap = leftPosition + movingBlock.offsetWidth - lastBlockLeft;
+                console.log("version 1")
             } else {
                 overlap = lastBlockLeft + lastBlock.offsetWidth - leftPosition;
+                console.log("version 2")
             }
+            console.log("overlap ", overlap)
             if (overlap <= 0) {
                 if (score > highScore) {
                     highScore = score;
