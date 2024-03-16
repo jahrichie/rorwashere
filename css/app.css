@@ -2,6 +2,10 @@
   background: #000000;
 }
 
+.re-re {
+  height: auto   !important;
+}
+
 .my-work-section {
 /*  display: none;*/
   animation: fadeIn 1s;
