@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title>Richard O'Reilly is a developer </title>
+    <title>Richard O'Reilly is a unicorn </title>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <!--  meta -->
     <meta name="author" content="Richard O'Reilly, ROR was here">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +20,9 @@
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- fonts -->
-<!--     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 
     <!-- async fonts hack -->
 
@@ -48,7 +49,8 @@
           <center>
             <!-- <a href="/"> -->
               <!-- <img src="images/logo.jpg" class="logo animate__animated animate__shakeX"  width="400px" height="100%" alt="Richard OReilly (ROR) Logo"/> -->
-            </a> 
+            <!-- </a>  -->
+
           </center>
         </div>
       </header>
@@ -101,9 +103,9 @@
       </section>
 
       <section class="my-work-section">
-        <p class="centered-text">Some of my work...</p>
+        <h1 id="selling-point" class="centered-text">Hey I'm Rich! I'm a <span id="changing-word">unicorn</span>.<br /> I'd love to connect and talk about my array of passions and how they can help your organization crush goals.</h1>
+        <br />
         <div class="row">
-        
           <div class="column">
             <a href="http://typeformai.rorwashere.com" target="_blank">
               <div class="overflow-hidden">
@@ -134,8 +136,6 @@
         </div><!-- row -->
 
         <footer>
-          <p class="centered-text">I'm available <a href='mailto:rorwashere@gmail.com'>rorwashere@gmail.com</a> to connect via email  <a href="https://www.linkedin.com/in/oreillyrichard/" target="_blank">or hit me on linkedin</a>
-          </p>
 
 
 
@@ -145,6 +145,31 @@
 
 
     </div>
+
+
+
+    <script>
+        var options = {
+            strings: [
+                "Fullstack Developer", 
+                "Dev OP", 
+                "Tech Executive", 
+                "Product Lead", 
+                "Process Builder", 
+                "AI Evangelist", 
+                "Unicorn", 
+                "Golfer", 
+                "Husband", 
+                "Dog Dad"
+            ],
+            typeSpeed: 100, 
+            backSpeed: 50,
+            backDelay: 1000, 
+            loop: true
+        };
+
+        var typed = new Typed("#changing-word", options);
+    </script>
 
 
   </body>
