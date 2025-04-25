@@ -69,7 +69,7 @@ p, a, p a {
 p {
     margin: 10px 0;
 }
-
+a img {border:5px dotted pink}
 a:hover img{
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 } 
@@ -128,4 +128,8 @@ a:active {
 
 h3 {
     margin-left:2%
+}
+
+.row {
+  min-height: 550px;
 }
