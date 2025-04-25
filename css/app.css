@@ -69,9 +69,9 @@ p, a, p a {
 p {
     margin: 10px 0;
 }
-a img {border:5px dotted pink}
+a img {border:5px dotted pink; transform: scale(.75); }
 a:hover img{
-    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.0); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 } 
 
 a:hover p{
