@@ -52,7 +52,7 @@ hgroup  {
   font-weight: 400;
 }
 
-h1 {
+h1, h2, h3 {
     font-size: 26px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -121,6 +121,11 @@ a:active {
     transition: opacity 0.5s ease-in-out;
 }
 
-#selling-point {
+#selling-point { 
     margin:100px 20px;
+    display: block;
+}
+
+h3 {
+    margin-left:2%
 }
