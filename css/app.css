@@ -133,3 +133,38 @@ h3 {
 .row {
   min-height: 550px;
 }
+
+.video-toggle-button,
+.video-skip-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #ff025c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.video-toggle-button:hover,
+.video-skip-button:hover {
+  background: #8a0031;
+}
+
+.video-skip-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  z-index: 10;
+}
+
+#video-container {
+  position: relative;
+  max-width:840px;
+  margin:0 auto;
+}
