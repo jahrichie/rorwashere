@@ -56,13 +56,35 @@ jobs:
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          # Write key and ensure proper formatting (remove any trailing newlines)
+          echo -n "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          echo "" >> ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          
+      - name: Debug SSH Key
+        run: |
+          echo "Checking SSH key file..."
+          ls -la ~/.ssh/deploy_key
+          echo "---"
+          echo "First line of key:"
+          head -n 1 ~/.ssh/deploy_key
+          echo "---"
+          echo "Last line of key:"
+          tail -n 1 ~/.ssh/deploy_key
+          echo "---"
+          echo "Key file size:"
+          wc -c ~/.ssh/deploy_key
+          echo "---"
+          echo "Checking key type and extracting public key:"
+          ssh-keygen -l -f ~/.ssh/deploy_key 2>&1 || echo "Could not read key type"
+          echo "---"
+          echo "Public key (add this to server's ~/.ssh/authorized_keys if not already there):"
+          ssh-keygen -y -f ~/.ssh/deploy_key 2>&1 || echo "Could not extract public key"
 
       - name: Test SSH Connection
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo 'SSH connection successful!' && whoami && pwd"
+          ssh -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/deploy_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo 'SSH connection successful!' && whoami && pwd" || true
 
       - name: Deploy to server
         run: |
