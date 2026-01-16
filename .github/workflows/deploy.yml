@@ -60,7 +60,7 @@ jobs:
           docker run -d \
             --name rorwashere \
             --restart unless-stopped \
-            -p 8080:80 \
+            #-p 8080:80 \
             ghcr.io/${{ github.repository }}:latest
           
           # Clean up old images
