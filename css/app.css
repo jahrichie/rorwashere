@@ -78,8 +78,13 @@ p, a, p a {
 p {
     margin: 10px 0;
 }
-a img {border:5px dotted pink; transform: scale(.75); }
+a img {
+  border:5px dotted pink; 
+  -webkit-transform: scale(.75);
+  transform: scale(.75);
+}
 a:hover img{
+    -webkit-transform: scale(1.0);
     transform: scale(1.0); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 } 
 
@@ -185,7 +190,11 @@ h1.hello {
   font-style: normal;
 
   font-size: 100px; 
-  line-height: 250px; 
+  line-height: 250px;
+  margin: 0;
+  padding: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Auto-scroll container for hello text */
@@ -194,19 +203,36 @@ h1.hello {
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 
 .hello-scroll-content {
+  -webkit-animation: scroll-up 30s linear infinite;
   animation: scroll-up 30s linear infinite;
+  -webkit-will-change: transform;
   will-change: transform;
 }
 
 /* Smooth vertical scroll animation */
-@keyframes scroll-up {
+@-webkit-keyframes scroll-up {
   0% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
   100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes scroll-up {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
 }
@@ -214,26 +240,31 @@ h1.hello {
 
 
 .pink {
+  background-color: #ff025c;
   background: #ff025c;
   color: white;
 }
 
 .pink-2 {
+  background-color: #ff5c79;
   background: #ff5c79;
   color: white;
 }
 
 .pink-3  {
+  background-color: #ff7186;
   background: #ff7186;
   color: white;
 }
 
 .pink-4  {
+  background-color: #ff7a8c;
   background: #ff7a8c;
   color: white;
 }
 
 .pink-5 {
+  background-color: #ff929e;
   background: #ff929e;
   color: white;
 }
@@ -242,7 +273,9 @@ h1.hello {
 .colored-bg  {
   padding:10px;
   width: 100%;
-
+  display: block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .award-image-wrapper  {

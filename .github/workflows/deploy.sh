@@ -30,3 +30,4 @@ docker image prune -f
 
 echo "Deployment complete!"
 
+
