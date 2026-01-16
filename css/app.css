@@ -44,8 +44,8 @@ body {
     text-align: center;
 }
 
-hgroup {
-    margin: 5% 0;
+hgroup, .awards {
+    margin: 10% 0;
 }
 
 hgroup  {
@@ -142,10 +142,6 @@ a:active {
 
 h3 {
     margin-left:2%
-}
-
-.row {
-  min-height: 550px;
 }
 
 .video-toggle-button,
@@ -281,4 +277,13 @@ h1.hello {
 .award-image-wrapper  {
   height:150px;
 /*  border:1px solid red;*/
+}
+
+.award-image-wrapper img {
+  filter: grayscale(1) contrast(1.5) brightness(1);
+}
+
+
+.awards .row {
+  height:250px;
 }
