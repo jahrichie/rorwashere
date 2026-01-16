@@ -5,14 +5,17 @@ services:
     build: .
     container_name: rorwashere
 
-    # Removed host port binding so Traefik can own ports 80/443
-    # ports:
-    #   - "8080:80"
+    # Local dev: expose on 8080. Production: Traefik handles routing via network
+    ports:
+      - "8080:80"
 
     volumes:
       - /Users/jahrichie/code/rorwashere:/usr/share/nginx/html:ro
 
     restart: unless-stopped
+
+    networks:
+      - traefik
 
     labels:
       - "traefik.enable=true"
@@ -25,3 +28,7 @@ services:
 
       # Nginx listens on port 80 inside the container
       - "traefik.http.services.rorwashere.loadbalancer.server.port=80"
+
+networks:
+  traefik:
+    external: true

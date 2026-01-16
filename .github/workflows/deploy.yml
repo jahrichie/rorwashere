@@ -56,11 +56,20 @@ jobs:
           docker stop rorwashere || true
           docker rm rorwashere || true
           
-          # Run the new container
+          # Ensure Traefik network exists
+          docker network inspect traefik >/dev/null 2>&1 || docker network create traefik
+          
+          # Run the new container with Traefik network and labels (no port mapping - Traefik handles routing)
           docker run -d \
             --name rorwashere \
             --restart unless-stopped \
-            #-p 8080:80 \
+            --network traefik \
+            --label "traefik.enable=true" \
+            --label "traefik.http.routers.rorwashere.rule=Host(\`rorwashere.com\`) || Host(\`www.rorwashere.com\`)" \
+            --label "traefik.http.routers.rorwashere.entrypoints=websecure" \
+            --label "traefik.http.routers.rorwashere.tls=true" \
+            --label "traefik.http.routers.rorwashere.tls.certresolver=le" \
+            --label "traefik.http.services.rorwashere.loadbalancer.server.port=80" \
             ghcr.io/${{ github.repository }}:latest
           
           # Clean up old images
