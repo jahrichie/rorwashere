@@ -57,13 +57,13 @@ jobs:
           docker rm rorwashere || true
           
           # Ensure Traefik network exists
-          docker network inspect traefik >/dev/null 2>&1 || docker network create traefik
+          docker network inspect proxy >/dev/null 2>&1 || docker network create proxy
           
           # Run the new container with Traefik network and labels (no port mapping - Traefik handles routing)
           docker run -d \
             --name rorwashere \
             --restart unless-stopped \
-            --network traefik \
+            --network proxy \
             --label "traefik.enable=true" \
             --label "traefik.http.routers.rorwashere.rule=Host(\`rorwashere.com\`) || Host(\`www.rorwashere.com\`)" \
             --label "traefik.http.routers.rorwashere.entrypoints=websecure" \
