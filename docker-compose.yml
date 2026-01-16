@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
     networks:
-      - traefik
+      - proxy
       - default
 
     labels:
@@ -31,7 +31,7 @@ services:
       - "traefik.http.services.rorwashere.loadbalancer.server.port=80"
 
 networks:
-  traefik:
-    external: false  # Will be created if doesn't exist (for local dev)
+  proxy:
+    external: true
   default:
     driver: bridge
