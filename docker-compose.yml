@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      no_cache: true
     container_name: rorwashere
 
     # Local dev: expose on 8080. Production: Traefik handles routing via network
