@@ -1,12 +1,27 @@
-version: '3.8'
+version: "3.8"
 
 services:
   web:
     build: .
     container_name: rorwashere
-    ports:
-      - "8080:80"
+
+    # Removed host port binding so Traefik can own ports 80/443
+    # ports:
+    #   - "8080:80"
+
     volumes:
       - /Users/jahrichie/code/rorwashere:/usr/share/nginx/html:ro
+
     restart: unless-stopped
 
+    labels:
+      - "traefik.enable=true"
+
+      # Route rorwashere.com and www.rorwashere.com
+      - "traefik.http.routers.rorwashere.rule=Host(`rorwashere.com`) || Host(`www.rorwashere.com`)"
+      - "traefik.http.routers.rorwashere.entrypoints=websecure"
+      - "traefik.http.routers.rorwashere.tls=true"
+      - "traefik.http.routers.rorwashere.tls.certresolver=le"
+
+      # Nginx listens on port 80 inside the container
+      - "traefik.http.services.rorwashere.loadbalancer.server.port=80"
