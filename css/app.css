@@ -48,6 +48,10 @@ hgroup, .awards {
     margin: 10% 0;
 }
 
+hgroup:first-child{
+    margin: 2% 0;
+}
+
 hgroup  {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;

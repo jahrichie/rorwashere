@@ -43,6 +43,7 @@
 
   h1.hello {
     font-size:13vw;
+    color: purple !important;
   }
 
   .column {
