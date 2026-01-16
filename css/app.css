@@ -26,6 +26,7 @@
 img.logo {
     max-width: 250px;
     margin-top:1%;
+    border: 0;
 }
 
 html {
@@ -43,7 +44,7 @@ body {
     text-align: center;
 }
 
-hgroup, footer {
+hgroup {
     margin: 5% 0;
 }
 
@@ -238,9 +239,13 @@ h1.hello {
 }
 
 
-
 .colored-bg  {
   padding:10px;
   width: 100%;
 
+}
+
+.award-image-wrapper  {
+  height:150px;
+/*  border:1px solid red;*/
 }

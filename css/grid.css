@@ -24,7 +24,7 @@
 .column {
  
   -ms-flex: 33.333333333333333%; /* IE10 */
-  flex: 33.333333333333333%;
+  flex: 0 0 33.333333333333333%;
   max-width: 33.333333333333333%;
   padding: 0 4px;
 
@@ -37,20 +37,17 @@
   width: 100%;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    -ms-flex: 50%;
-    flex: 50%;
-    max-width: 50%;
-  }
-}
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
+
+  h1.hello {
+    font-size:13vw;
+  }
+
   .column {
     -ms-flex: 100%;
-    flex: 100%;
+    flex: 0 0 100%;
     max-width: 100%;
   }
 }
