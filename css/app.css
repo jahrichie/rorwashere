@@ -14,11 +14,11 @@
 }
 
 ::selection {
-  background: #ff025c; /* WebKit/Blink Browsers */
+  background: #000; /* WebKit/Blink Browsers */
   color: white;
 }
 ::-moz-selection {
-  background: #ff025c; /* Gecko Browsers */
+  background: #000; /* Gecko Browsers */
   color: white;
 }
 
@@ -48,13 +48,21 @@ hgroup, footer {
 }
 
 hgroup  {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 
 h1, h2, h3 {
     font-size: 26px;
-    font-family: 'Roboto', sans-serif;
+
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
     font-weight: 400;
     letter-spacing: 1px;
     font-weight: bold;
@@ -167,4 +175,72 @@ h3 {
   position: relative;
   max-width:840px;
   margin:0 auto;
+}
+
+h1.hello {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+
+  font-size: 100px; 
+  line-height: 250px; 
+}
+
+/* Auto-scroll container for hello text */
+.hello-scroll-container {
+  height: 500px; /* Show one line at a time */
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.hello-scroll-content {
+  animation: scroll-up 30s linear infinite;
+  will-change: transform;
+}
+
+/* Smooth vertical scroll animation */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
+
+.pink {
+  background: #ff025c;
+  color: white;
+}
+
+.pink-2 {
+  background: #ff5c79;
+  color: white;
+}
+
+.pink-3  {
+  background: #ff7186;
+  color: white;
+}
+
+.pink-4  {
+  background: #ff7a8c;
+  color: white;
+}
+
+.pink-5 {
+  background: #ff929e;
+  color: white;
+}
+
+
+
+.colored-bg  {
+  padding:10px;
+  width: 100%;
+
 }

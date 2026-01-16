@@ -22,7 +22,9 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- async fonts hack -->
 
@@ -55,64 +57,30 @@
         </div>
       </header>
  
-     <section>
-       <article>
-         <hgroup>
-           <div id="video-container">
-             <button id="video-toggle" class="video-toggle-button" style="display: none;">
-               <span id="toggle-text">Show Video</span>
-             </button>
-             <button id="video-skip" class="video-skip-button" style="display: none;">
-               Skip Video
-             </button>
-             <div id="video">
-              <center>
-                <video class="re-re" style="width: 100%; height: 500px;" autoplay  muted playsinline controls>
-
-
-                  <source 
-                    src="video/hi-im-richard-oreilly.mov" 
-                    type="video/quicktime" 
-                  >
-                
-                  <source 
-                    src="video/hi-im-richard-oreilly.webm" 
-                  >
-
-                  <track 
-                    src="video/test-en.vtt" 
-                    label="English" 
-                    kind="captions" 
-                    srclang="en-us" default 
-                  >
-
-
-
-                </video>  
-              </center>
-             </div>
-           </div>
-         </hgroup>
-       </article>
-     </section>
-
       <section>
         <article>
           <hgroup>
-            <div>
-              <h1 class="centered-text">
-                <span id="app"></span>
+            <div class="hello-scroll-container">
+              <h1 class="hello centered-text hello-scroll-content">
+                <div class="colored-bg pink">App development </div>
+                <div class="colored-bg pink-2">Product Design </div>
+                <div class="colored-bg pink-3">AI Solutions </div>
+                <div class="colored-bg pink-4">Infrastructure </div>
+                <div class="colored-bg pink-5">Leadership & Mentoring </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="colored-bg pink">App development </div>
+                <div class="colored-bg pink-2">Product Design </div>
+                <div class="colored-bg pink-3">AI Solutions </div>
+                <div class="colored-bg pink-4">Infrastructure </div>
+                <div class="colored-bg pink-5">Leadership & Mentoring </div> 
               </h1>
             </div>
           </hgroup>
         </article>
       </section>
 
+
       <section class="my-work-section">
-        <h1 id="selling-point" class="centered-text">Hello, I'm Rich. I'm a <span id="changing-word">unicorn</span>.<br /> I'd love to connect and talk about my array of passions and how they can help your organization crush goals.</h1>
-        <br />
-
-
         <!-- PROJECTS -->
         <h3>Portfolio</h3>
         <div class="row">
@@ -194,139 +162,139 @@
 
 
     <script>
-        // Cookie management functions
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
+        // // Cookie management functions
+        // function setCookie(name, value, days) {
+        //     var expires = "";
+        //     if (days) {
+        //         var date = new Date();
+        //         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        //         expires = "; expires=" + date.toUTCString();
+        //     }
+        //     document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        // }
 
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
+        // function getCookie(name) {
+        //     var nameEQ = name + "=";
+        //     var ca = document.cookie.split(';');
+        //     for(var i = 0; i < ca.length; i++) {
+        //         var c = ca[i];
+        //         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        //         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        //     }
+        //     return null;
+        // }
 
-        function isReturningVisitor() {
-            var lastVisit = getCookie('ror_last_visit');
-            if (!lastVisit) {
-                return false;
-            }
+        // function isReturningVisitor() {
+        //     var lastVisit = getCookie('ror_last_visit');
+        //     if (!lastVisit) {
+        //         return false;
+        //     }
             
-            var lastVisitDate = new Date(parseInt(lastVisit));
-            var now = new Date();
-            var daysSinceVisit = (now - lastVisitDate) / (1000 * 60 * 60 * 24);
+        //     var lastVisitDate = new Date(parseInt(lastVisit));
+        //     var now = new Date();
+        //     var daysSinceVisit = (now - lastVisitDate) / (1000 * 60 * 60 * 24);
             
-            return daysSinceVisit < 15;
-        }
+        //     return daysSinceVisit < 15;
+        // }
 
-        function updateVisitCookie() {
-            var now = new Date().getTime();
-            setCookie('ror_last_visit', now, 15);
-        }
+        // function updateVisitCookie() {
+        //     var now = new Date().getTime();
+        //     setCookie('ror_last_visit', now, 15);
+        // }
 
-        // Wait for DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if returning visitor
-            var isReturning = isReturningVisitor();
+        // // Wait for DOM to be ready
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Check if returning visitor
+        //     var isReturning = isReturningVisitor();
             
-            // Update cookie with current visit
-            updateVisitCookie();
+        //     // Update cookie with current visit
+        //     updateVisitCookie();
 
-            var videoContainer = document.getElementById('video');
-            var videoToggle = document.getElementById('video-toggle');
-            var videoSkip = document.getElementById('video-skip');
-            var toggleText = document.getElementById('toggle-text');
-            var videoElement = videoContainer.querySelector('video');
+        //     var videoContainer = document.getElementById('video');
+        //     var videoToggle = document.getElementById('video-toggle');
+        //     var videoSkip = document.getElementById('video-skip');
+        //     var toggleText = document.getElementById('toggle-text');
+        //     var videoElement = videoContainer.querySelector('video');
             
-            // Function to hide video and show toggle
-            function hideVideo() {
-                videoContainer.style.display = 'none';
-                videoToggle.style.display = 'block';
-                videoSkip.style.display = 'none';
-                if (videoElement) {
-                    videoElement.pause();
-                }
-            }
+        //     // Function to hide video and show toggle
+        //     function hideVideo() {
+        //         videoContainer.style.display = 'none';
+        //         videoToggle.style.display = 'block';
+        //         videoSkip.style.display = 'none';
+        //         if (videoElement) {
+        //             videoElement.pause();
+        //         }
+        //     }
             
-            // Function to show video and hide toggle
-            function showVideo() {
-                videoContainer.style.display = 'block';
-                videoToggle.style.display = 'none';
-                toggleText.textContent = 'Show Video';
-                if (videoElement) {
-                    videoElement.play();
-                }
-            }
+        //     // Function to show video and hide toggle
+        //     function showVideo() {
+        //         videoContainer.style.display = 'block';
+        //         videoToggle.style.display = 'none';
+        //         toggleText.textContent = 'Show Video';
+        //         if (videoElement) {
+        //             videoElement.play();
+        //         }
+        //     }
             
-            // Handle video display for returning visitors
-            if (isReturning) {
-                // Hide video by default for returning visitors
-                hideVideo();
-            } else {
-                // Show skip button for new visitors
-                videoSkip.style.display = 'block';
-            }
+        //     // Handle video display for returning visitors
+        //     if (isReturning) {
+        //         // Hide video by default for returning visitors
+        //         hideVideo();
+        //     } else {
+        //         // Show skip button for new visitors
+        //         videoSkip.style.display = 'block';
+        //     }
             
-            // Skip button handler
-            videoSkip.addEventListener('click', function() {
-                hideVideo();
-            });
+        //     // Skip button handler
+        //     videoSkip.addEventListener('click', function() {
+        //         hideVideo();
+        //     });
             
-            // Toggle button handler
-            videoToggle.addEventListener('click', function() {
-                if (videoContainer.style.display === 'none') {
-                    videoContainer.style.display = 'block';
-                    toggleText.textContent = 'Hide Video';
-                    videoSkip.style.display = 'none';
-                    if (videoElement) {
-                        videoElement.play();
-                    }
-                } else {
-                    hideVideo();
-                }
-            });
+        //     // Toggle button handler
+        //     videoToggle.addEventListener('click', function() {
+        //         if (videoContainer.style.display === 'none') {
+        //             videoContainer.style.display = 'block';
+        //             toggleText.textContent = 'Hide Video';
+        //             videoSkip.style.display = 'none';
+        //             if (videoElement) {
+        //                 videoElement.play();
+        //             }
+        //         } else {
+        //             hideVideo();
+        //         }
+        //     });
 
-            // Handle typing animation
-            var finalWord = "Unicorn"; // End message to display
-            var changingWordElement = document.getElementById('changing-word');
+        //     // Handle typing animation
+        //     var finalWord = "Unicorn"; // End message to display
+        //     var changingWordElement = document.getElementById('changing-word');
             
-            if (isReturning) {
-                // For returning visitors, just display the final word
-                changingWordElement.textContent = finalWord;
-            } else {
-                // For new visitors, show the typing animation
-                var options = {
-                    strings: [
-                        "Fullstack Developer", 
-                        "Dev OP", 
-                        "Tech Executive", 
-                        "Product Lead", 
-                        "Process Builder", 
-                        "AI Evangelist", 
-                        "Unicorn", 
-                        "Golfer", 
-                        "Husband", 
-                        "Dog Dad"
-                    ],
-                    typeSpeed: 100, 
-                    backSpeed: 50,
-                    backDelay: 1000, 
-                    loop: true
-                };
+        //     if (isReturning) {
+        //         // For returning visitors, just display the final word
+        //         changingWordElement.textContent = finalWord;
+        //     } else {
+        //         // For new visitors, show the typing animation
+        //         var options = {
+        //             strings: [
+        //                 "Fullstack Developer", 
+        //                 "Dev OP", 
+        //                 "Tech Executive", 
+        //                 "Product Lead", 
+        //                 "Process Builder", 
+        //                 "AI Evangelist", 
+        //                 "Unicorn", 
+        //                 "Golfer", 
+        //                 "Husband", 
+        //                 "Dog Dad"
+        //             ],
+        //             typeSpeed: 100, 
+        //             backSpeed: 50,
+        //             backDelay: 1000, 
+        //             loop: true
+        //         };
 
-                var typed = new Typed("#changing-word", options);
-            }
-        });
+        //         var typed = new Typed("#changing-word", options);
+        //     }
+        // });
     </script>
 
     <p class="centered-text">  Email me at <a href="mailto:cheers@rorwashere.com" class="button">cheers@rorwashere.com</a>.

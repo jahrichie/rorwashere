@@ -57,12 +57,10 @@ jobs:
           docker rm rorwashere || true
           
           # Run the new container
-          mkdir -p /home/jahrichie/apps/containers/rorwashere/html
           docker run -d \
             --name rorwashere \
             --restart unless-stopped \
             -p 8080:80 \
-            -v /home/jahrichie/apps/containers/rorwashere/html:/usr/share/nginx/html:ro \
             ghcr.io/${{ github.repository }}:latest
           
           # Clean up old images

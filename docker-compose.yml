@@ -6,5 +6,7 @@ services:
     container_name: rorwashere
     ports:
       - "8080:80"
+    volumes:
+      - /Users/jahrichie/code/rorwashere:/usr/share/nginx/html:ro
     restart: unless-stopped
 
