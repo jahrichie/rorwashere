@@ -197,12 +197,6 @@
                 <div class="colored-bg pink-3">AI Solutions </div>
                 <div class="colored-bg pink-4">Infrastructure </div>
                 <div class="colored-bg pink-5">Leadership & Mentoring </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="colored-bg pink">App development </div>
-                <div class="colored-bg pink-2">Product Design </div>
-                <div class="colored-bg pink-3">AI Solutions </div>
-                <div class="colored-bg pink-4">Infrastructure </div>
-                <div class="colored-bg pink-5">Leadership & Mentoring </div>
               </h1>
             </div>
 
@@ -267,5 +261,20 @@
     <footer>
       <p class="centered-text">I'm available <a href="mailto:cheers@rorwashere.com">cheers@rorwashere.com</a></p>
     </footer>
+
+    <script>
+      // Duplicate scroll content for seamless loop
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollContent = document.querySelector('.hello-scroll-content');
+        if (scrollContent) {
+          // Clone all colored-bg divs
+          const originalDivs = scrollContent.querySelectorAll('.colored-bg');
+          originalDivs.forEach(function(div) {
+            const clone = div.cloneNode(true);
+            scrollContent.appendChild(clone);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

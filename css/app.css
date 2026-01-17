@@ -240,32 +240,27 @@ h1.hello {
 
 
 .pink {
-  background-color: #ff025c;
   background: #ff025c;
   color: white;
 }
 
 .pink-2 {
-  background-color: #ff5c79;
   background: #ff5c79;
   color: white;
 }
 
 .pink-3  {
-  background-color: #ff7186;
   background: #ff7186;
   color: white;
 }
 
 .pink-4  {
-  background-color: #ff7a8c;
   background: #ff7a8c;
   color: white;
 }
 
 .pink-5 {
-  background-color: #ff929e;
-  background: #ff929e;
+  background: #ffa8b0;
   color: white;
 }
 
