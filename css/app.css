@@ -291,3 +291,7 @@ h1.hello {
 .awards .row {
   height:250px;
 }
+
+footer {
+  min-height: 100px;
+}
